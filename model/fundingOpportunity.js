@@ -9,5 +9,5 @@ const fundingOpportunitySchema = new mongoose.Schema({
 });
 
 //export the model
-module.exports = mongoose.model("fundingopportunity", findingOpportunitySchema);
+module.exports = mongoose.model("fundingopportunity", fundingOpportunitySchema);
 
