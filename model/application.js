@@ -9,11 +9,13 @@ const applicationSchema = new mongoose.Schema({
     grant_proposal_id:{
         type: mongoose.Schema.Types.ObjectId,
 	    ref: "grantproposal",
+        required: true,
     }, 
     funding_opportunity_id:{
         type: mongoose.Schema.Types.ObjectId,
 	    ref: "fundingopportunity",
-    } 
+        required: true,
+    } ,
 
 });
 
