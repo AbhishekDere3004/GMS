@@ -1,7 +1,7 @@
 const application = require("../model/application");
-const grantproposal = require ("../model/grantProposal")
+const grantproposal = require("../model/grantProposal")
 
-const  sendAllApplications= async (req, res)=> {
+const sendApplication = async (req, res) => {
     try {
         const { Address_c,
             Address_Geolocation_c,
@@ -94,8 +94,9 @@ const  sendAllApplications= async (req, res)=> {
             Signature_c,
             Status_c,
             Status_Indicator_c,
-             } = req.body;            
-        const responce = await application.create({ Address_c,
+        } = req.body;
+        const responce = await application.create({
+            Address_c,
             Address_Geolocation_c,
             Agency_Capability_c,
             Agency_Name_c,
@@ -185,8 +186,9 @@ const  sendAllApplications= async (req, res)=> {
             Scope_of_Work_c,
             Signature_c,
             Status_c,
-            Status_Indicator_c, });
-       
+            Status_Indicator_c,
+        });
+
         console.log(responce);
         res.status(201).json(responce);
     } catch (error) {
@@ -195,4 +197,22 @@ const  sendAllApplications= async (req, res)=> {
     }
 
 };
-module.exports = sendAllApplications
+
+// delete application by id
+
+const deleteApplication = async(req, res ) =>{
+    try {
+        const { id } = req.params;  
+
+        const deletedApplication = await application.findByIdAndDelete(id);
+       
+        if (!deletedApplication) {
+            return res.status(404).json({ error: "Application not found" });
+        }
+        res.status(200).json({ message: "Application deleted successfully" });
+    } catch (error) {
+        console.log("Internal server error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+module.exports = {sendApplication , deleteApplication}

@@ -10,8 +10,9 @@ const applicationreviewController = require("../controllers/applicationreviewCon
 const progressreportController = require("../controllers/progressreportController");
 const questionnaireController = require("../controllers/questionnaireController");
 const closeoutController = require("../controllers/closeoutController");
+const { sendApplication, deleteApplication } = require("../controllers/applicationController");
 
-const sendAllApplications  = require("../controllers/applicationController");
+
 
 const router = express.Router();
 
@@ -33,9 +34,9 @@ router.post("/applicationreview",applicationreviewController);
 
 // router.get("/applications" , getAllApplications);
 
-router.post("/sendapp" , sendAllApplications);
+router.post("/sendapp" , sendApplication);
 
-
+router.delete("/application/:id" , deleteApplication)
 // router.post("/AllIdbyApplications",AllIdbyApplications)
 
 router.post("/progressreport",progressreportController);
