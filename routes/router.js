@@ -11,7 +11,7 @@ const progressreportController = require("../controllers/progressreportControlle
 const questionnaireController = require("../controllers/questionnaireController");
 const closeoutController = require("../controllers/closeoutController");
 
-const {sendAllApplications ,AllIdbyApplications} = require("../controllers/applicationController");
+const sendAllApplications  = require("../controllers/applicationController");
 
 const router = express.Router();
 
@@ -36,7 +36,7 @@ router.post("/applicationreview",applicationreviewController);
 router.post("/sendapp" , sendAllApplications);
 
 
-router.post("/AllIdbyApplications",AllIdbyApplications)
+// router.post("/AllIdbyApplications",AllIdbyApplications)
 
 router.post("/progressreport",progressreportController);
 
