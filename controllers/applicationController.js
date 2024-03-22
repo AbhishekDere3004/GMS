@@ -124,6 +124,8 @@ const deleteApplication = async(req, res ) =>{
     }
 };
 
+// update application by id
+
 const updateApplicationbyId = async (req, res) => {
     try {
         const { id } = req.params;
