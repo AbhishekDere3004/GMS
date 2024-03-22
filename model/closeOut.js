@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //Define the schema
-const closeOutSchema = new mongoose.Schema({
+const closeoutSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -13,4 +13,4 @@ const closeOutSchema = new mongoose.Schema({
 });
 
 //export the model
-module.exports = mongoose.model("closeout", closeOutSchema);
+module.exports = mongoose.model("closeout", closeoutSchema);

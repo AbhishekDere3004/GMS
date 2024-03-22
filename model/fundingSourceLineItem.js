@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //Define the schema
-const findingSourceLineItemSchema = new mongoose.Schema({
+const fundingSourceLineItemSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -23,4 +23,4 @@ const findingSourceLineItemSchema = new mongoose.Schema({
 });
 
 //export the model
-module.exports = mongoose.model("FindingSourceLineItem", findingSourceLineItemSchema);
+module.exports = mongoose.model("fundingSourceLineItem", fundingSourceLineItemSchema);

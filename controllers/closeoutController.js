@@ -1,4 +1,4 @@
-const closeout = require("../model/closeOut");
+const closeout = require("../model/closeout");
 
 const closeoutController = async(req,res) =>{
      

@@ -1,6 +1,6 @@
 const express = require("express");
 const FundingSourcecontroller = require("../controllers/fundingSourceController");
-const FindingSourceLineItemcontroller = require("../controllers/FindingSourceLineItemcontroller");
+const fundingSourceLineItemcontroller = require("../controllers/FundingSourceLineItemcontroller");
 const invoiceController = require("../controllers/invoiceController");
 const grantController = require("../controllers/grantController");
 const grantproposalController = require("../controllers/grantproposalController");
@@ -10,15 +10,14 @@ const applicationreviewController = require("../controllers/applicationreviewCon
 const progressreportController = require("../controllers/progressreportController");
 const questionnaireController = require("../controllers/questionnaireController");
 const closeoutController = require("../controllers/closeoutController");
-const { sendApplication, deleteApplication } = require("../controllers/applicationController");
-
+const { sendApplication, deleteApplication, updateApplicationbyId } = require("../controllers/applicationController");
 
 
 const router = express.Router();
 
 router.post("/fundingSource",FundingSourcecontroller);
 
-router.post("/FindingSourceLineItem",FindingSourceLineItemcontroller);
+router.post("/fundingSourceLineItem",fundingSourceLineItemcontroller);
 
 router.post("/invoice",invoiceController);
 
@@ -34,9 +33,20 @@ router.post("/applicationreview",applicationreviewController);
 
 // router.get("/applications" , getAllApplications);
 
-router.post("/sendapp" , sendApplication);
 
-router.delete("/application/:id" , deleteApplication)
+//  Application Routers post
+
+router.post("/sendApplication" , sendApplication);
+
+//  Application Routers update(put)
+router.put("/updateApplication/:id", updateApplicationbyId);
+
+//  Application Routers delete
+router.delete("/deleteApplication/:id" , deleteApplication);
+
+
+
+
 // router.post("/AllIdbyApplications",AllIdbyApplications)
 
 router.post("/progressreport",progressreportController);
