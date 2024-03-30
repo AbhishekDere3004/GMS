@@ -10,10 +10,23 @@ const applicationreviewController = require("../controllers/applicationreviewCon
 const progressreportController = require("../controllers/progressreportController");
 const questionnaireController = require("../controllers/questionnaireController");
 const closeoutController = require("../controllers/closeoutController");
-const { sendApplication, deleteApplication, updateApplicationbyId } = require("../controllers/applicationController");
-
+const { sendApplication, deleteApplication, updateApplicationbyId, getApplication, getApplicationById} = require("../controllers/applicationController");
+const {login, signup, forgotPassword, resetPassword} = require("../controllers/user");
 
 const router = express.Router();
+
+router.get("/getapplication", getApplication);
+
+router.get("/getapplicationbyid/:id", getApplicationById);
+
+
+router.post("/forgotpassword", forgotPassword);
+
+router.post("/resetpassword", resetPassword);
+
+router.post("/login", login);
+
+router.post("/signup", signup);
 
 router.post("/fundingSource",FundingSourcecontroller);
 
